@@ -1,12 +1,22 @@
 package com.developerassessment;
 
+/**
+ * class Main
+ *
+ * Implements the methods in the UserFunctions class based on the user's input
+ * Designed to be run from the command line
+ *
+ * @author (Brooke Schoen)
+ * @version (09/02/2021)
+ */
+
 public class Main extends UserFunctions
 {
     public static void main(String[] args)
     {
-        String userFunction = "";
-        int accountNumber = 0;
-        float amount = 0;
+        String userFunction = "";   // stores the function the user enters
+        int accountNumber = 0;      // stores the account number the user enters
+        float amount = 0;           // stores the amount of money the user chooses to charge or deposit into their account
 
         if (args.length == 0)
         {
@@ -15,7 +25,7 @@ public class Main extends UserFunctions
         }
         else
         {
-            userFunction = args[0];
+            userFunction = args[0].toLowerCase();
 
             switch(userFunction)
             {
@@ -39,6 +49,4 @@ public class Main extends UserFunctions
             }
         }
     }
-
-
 }

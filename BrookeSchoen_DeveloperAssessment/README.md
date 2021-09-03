@@ -55,20 +55,25 @@ A list of technologies used in the project:
 
 ## Installation
 ***
-
+Use GitHub to clone the repository
+```shell
+$ git clone https://github.com/brookeschoen/BrookeSchoen_DeveloperAssessment.git
+$ cd ~/BrookeSchoen_DeveloperAssessment/
+$ javac -cp . com/developerassessment/*.java
+```
 
 ## Usage
 ***
 _Using test cases in [UserAccountInfo](/Users/brookeschoen/Desktop/BrookeSchoen_DeveloperAssessment/UserAccountInfo)_
 
-```bash
+```shell
 #returns "0.00"
-java -cp . com/developerassessment/Main check 2356544
+$ java -cp . com/developerassessment/Main check 2356544
 
-java -cp . com/developerassessment/Main deposit 2356544 100.00
+$ java -cp . com/developerassessment/Main deposit 2356544 100.00
 
 #returns "100.00"
-java -cp . com/developerassessment/Main check 2356544
+$ java -cp . com/developerassessment/Main check 2356544
 ```
 
 ## Contributing

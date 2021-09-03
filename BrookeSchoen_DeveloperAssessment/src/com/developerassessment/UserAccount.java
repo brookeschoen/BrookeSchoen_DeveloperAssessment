@@ -1,22 +1,48 @@
 package com.developerassessment;
 
+/**
+ * class UserAccount: data structure that has the following components:
+ * filePath, userAccountFile, allUserAccountNumbers, allUserBalances, accountNumber, balance
+ *
+ * filePath - path of the flat file that contains the account numbers and corresponding balances (UPDATE APPROPRIATELY)
+ * userAccountFile - initializes the file from filePath
+ * allUserAccountNumbers - stores all the account numbers in userAccountFile
+ * allUserBalances - stores all the account balances in userAccountFile
+ * accountNumber - stores the user's individual account number
+ * balance - stores the user's individual account balance
+ *
+ * Constructor: UserAccount()
+ * Methods:
+ *      setAccountNumber(int accountNumber)
+ *      readAccountNumbersAndBalancesFromFile()
+ *      boolean accountNumberExists(int accountNumber)
+ *      float getUserBalance()
+ *      ArrayList<Float> getAllUserBalances()
+ *      updateBalance(float newBalance)
+ *      updateUserAccountFile()
+ *
+ * @author (Brooke Schoen)
+ * @version (09/02/2021)
+ */
+
 import java.io.*;
 import java.util.*;
 
 public class UserAccount
 {
-    private final String filePath = "/Users/brookeschoen/Desktop/BrookeSchoen_DeveloperAssessment/UserAccountInfo";
+    private final String filePath = "BrookeSchoen_DeveloperAssessment/UserAccountInfo";
     private final File userAccountFile = new File(filePath);
     private ArrayList<Integer> allUserAccountNumbers;
     private ArrayList<Float> allUserBalances;
-    private int accountNumber;            // the account number of the user
-    private float balance;                // the current balance of the associated account number
+    private int accountNumber;
+    private float balance;
 
     public UserAccount()
     {
         readAccountNumbersAndBalancesFromFile();
     }
 
+    // sets the user's account number to the UserAccount object
     public void setAccountNumber(int accountNumber)
     {
         if (accountNumberExists(accountNumber))
@@ -30,6 +56,8 @@ public class UserAccount
         }
     }
 
+    // reads in all the account numbers and stores them in allUserAccountNumbers
+    // reads in all the account balances and stores them in allUserAccountBalances
     private void readAccountNumbersAndBalancesFromFile()
     {
         try
@@ -60,11 +88,13 @@ public class UserAccount
         }
     }
 
+    // checks if user entered a valid account number
     private boolean accountNumberExists(int accountNumber)
     {
         return allUserAccountNumbers.contains(accountNumber);
     }
 
+    // returns user's balance based on their account number
     public float getUserBalance()
     {
         final int accountNumberListPosition = allUserAccountNumbers.indexOf(this.accountNumber);
@@ -73,11 +103,13 @@ public class UserAccount
         return this.balance;
     }
 
+    // returns each user account balance stored in allUserBalances
     public ArrayList<Float> getAllUserBalances()
     {
         return allUserBalances;
     }
 
+    // replaces the old balance from allUserBalances with the new one after calling either charge or deposit methods
     public void updateBalance(float newBalance)
     {
         final int balanceListPosition = allUserBalances.indexOf(this.balance);
@@ -89,6 +121,7 @@ public class UserAccount
         updateUserAccountFile();
     }
 
+    // rewrites userAccountFile to accurately display the current accounts and balances
     private void updateUserAccountFile()
     {
         try
@@ -111,10 +144,5 @@ public class UserAccount
         }
 
         System.exit(0);
-    }
-
-    public String toString()
-    {
-        return accountNumber + " " + String.format("%.2f", balance);
     }
 }

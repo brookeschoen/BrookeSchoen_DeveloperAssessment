@@ -1,5 +1,21 @@
 package com.developerassessment;
 
+/**
+ * class UserAccount: implements the functions a user can choose and contains the following components:
+ * user
+ *
+ * user - stores a UserAccount object
+ *
+ * Methods:
+ *      check(int accountNumber)
+ *      deposit(int accountNumber, float amount)
+ *      charge(int accountNumber, float amount)
+ *      total()
+ *
+ * @author (Brooke Schoen)
+ * @version (09/02/2021)
+ */
+
 import java.util.ArrayList;
 
 public class UserFunctions
